@@ -3,7 +3,8 @@
     "allow": [
       "Bash(git:*)",
       "Bash(rtk proxy:*)",
-      "Bash(which gh:*)"
+      "Bash(which gh:*)",
+      "Bash(npm install:*)"
     ]
   }
 }

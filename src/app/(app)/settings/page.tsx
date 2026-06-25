@@ -6,6 +6,7 @@ import { createClient } from "@/lib/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FREQUENCY_LABELS } from "@/lib/constants";
+import { usePush } from "@/hooks/use-push";
 import type { Database } from "@/types/database";
 
 type Profile = Database["public"]["Tables"]["profiles"]["Row"];
@@ -15,6 +16,7 @@ export default function SettingsPage() {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [saved, setSaved] = useState(false);
   const supabase = createClient();
+  const { supported, subscribed, loading: pushLoading, subscribe, unsubscribe } = usePush();
 
   type FormValues = {
     display_name: string;
@@ -129,6 +131,26 @@ export default function SettingsPage() {
           {saved ? "Saved!" : "Save settings"}
         </Button>
       </form>
+
+      {supported && (
+        <div className="border-t border-[#B8C4B8]/30 pt-6 space-y-3">
+          <div>
+            <p className="text-sm font-medium text-[#3D3D3D]">Push notifications</p>
+            <p className="text-xs text-[#B8C4B8] mt-0.5">
+              Get notified when it&apos;s time to save or reflect on a want.
+            </p>
+          </div>
+          {subscribed ? (
+            <Button variant="secondary" size="sm" onClick={unsubscribe} disabled={pushLoading}>
+              {pushLoading ? "..." : "Turn off notifications"}
+            </Button>
+          ) : (
+            <Button size="sm" onClick={subscribe} disabled={pushLoading}>
+              {pushLoading ? "..." : "Turn on notifications"}
+            </Button>
+          )}
+        </div>
+      )}
     </div>
   );
 }
