@@ -140,7 +140,15 @@ export interface Database {
           responded_at?: string | null;
         };
         Update: Partial<Database["public"]["Tables"]["reminders"]["Insert"]>;
-        Relationships: [];
+        Relationships: [
+          {
+            foreignKeyName: "reminders_want_id_fkey";
+            columns: ["want_id"];
+            isOneToOne: false;
+            referencedRelation: "wants";
+            referencedColumns: ["id"];
+          }
+        ];
       };
       decisions: {
         Row: {
