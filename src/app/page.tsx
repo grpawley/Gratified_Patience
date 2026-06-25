@@ -5,7 +5,7 @@ export default function Home() {
     <main className="flex flex-1 flex-col items-center justify-center min-h-screen px-6 text-center">
       <div className="max-w-lg">
         <h1 className="text-5xl font-light tracking-wide text-[#3D3D3D] mb-4">
-          Stoa
+          Gratified Patience
         </h1>
         <p className="text-lg text-[#B8C4B8] mb-2">
           Authorship over desire.

@@ -28,7 +28,7 @@ export function NavBar() {
       {/* Desktop sidebar */}
       <nav className="hidden md:flex flex-col w-56 min-h-screen bg-[#FAF7F2] border-r border-[#B8C4B8]/30 p-4 gap-1">
         <div className="px-3 py-4 mb-4">
-          <h1 className="text-xl font-light text-[#3D3D3D]">Stoa</h1>
+          <h1 className="text-xl font-light text-[#3D3D3D]">Gratified Patience</h1>
         </div>
 
         <Link

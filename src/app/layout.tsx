@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Stoa",
+  title: "Gratified Patience",
   description: "Authorship over desire. Intention over impulse. Confidence over urgency.",
   manifest: "/manifest.json",
 };
